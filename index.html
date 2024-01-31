@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="js/logica.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/icons/icon-192x192.png">
+  <link rel="manifest" href="manifest.json" />
+  <title>Formulario de Ubicación</title>
+</head>
+
+<body>
+  <h1 style="text-align: center;margin-bottom: 30px;">Formulario de Ubicación</h1>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="form-group" style="width: 85%;">
+            <label for="pais">País:</label>
+            <select class="form-control" id="pais" onchange="cargarEstados()">
+              <option value="" disabled selected>Seleccione un País</option>
+              <option value="México">México</option>
+              <option value="Canadá">Canadá</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="width: 85%;">
+            <label for="estado">Estado:</label>
+            <select class="form-control" id="estado" onchange="cargarMunicipios()" disabled>
+            </select>
+          </div>
+
+          <div class="form-group" style="width: 85%;">
+            <label for="municipio">Municipio:</label>
+            <select class="form-control" id="municipio" onchange="cargarLocalidades()" disabled>
+            </select>
+          </div>
+
+          <div class="form-group" style="width: 85%;">
+            <label for="localidad">Localidad:</label>
+            <select class="form-control" id="localidad" onchange="seleccionLocalidad()" disabled>
+            </select>
+          </div>
+          <div class="form-group center-button mt-4">
+            <button type="button" class="btn btn-primary" onclick="mostrarResultados()" id="mostrarResultadosBtn"
+              disabled>
+              Mostrar Información
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="mt-5" id="resultadosCard" style="display:none;">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="align-items: center; text-align: center;">Datos del Lugar</h5>
+              <div class="row">
+                <div class="col-md-6 mt-3">
+                  <p id="paisSeleccionado" class="card-text"></p>
+                  <p id="estadoSeleccionado" class="card-text"></p>
+                  <p id="municipioSeleccionado" class="card-text"></p>
+                  <p id="localidadSeleccionada" class="card-text"></p>
+                </div>
+                <div class="col-md-6 align-items-center mt-4">
+                  <img id="imagenPais" src="" alt="Imagen del país" style="max-width: 100%; display: none;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="./regist_serviceWorker.js"></script>
+</body>
+
+</html>
